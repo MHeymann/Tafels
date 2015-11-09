@@ -108,6 +108,48 @@ int  ht_insert(hashtab_ptr ht, void *key, void *value)
 	return 0;
 }
 
+int  ht_insert_update(hashtab_ptr ht, void *key, void *value, void (*freeval)(void *))
+{
+	unsigned int hash = ht->hash(key, ht->size);
+	void *v;
+	htentry_ptr p;
+
+	for (p = ht->table[hash]; p; p = p->next_ptr) {
+		if (ht->cmp(p->key, key) == 0) {
+			v = p->val;
+			p->val = value;
+			freeval(v);
+			return HASH_TABLE_KEY_VALUE_PAIR_EXISTS;
+		}
+	}
+	
+	p = malloc(sizeof(htentry_t));
+	if (!p) {
+		printf("Memory error\n");
+		return HASH_TABLE_NO_SPACE_FOR_NODE;
+	}
+
+	p->key = key;
+	p->val = value;
+	p->next_ptr = NULL;
+
+	if (ht->table[hash]) {
+		p->next_ptr = ht->table[hash];
+		ht->table[hash] = p;
+	} else {	
+		ht->table[hash] = p;
+	}
+
+	ht->num_entries++;
+	
+	if (overfull(ht)) {
+		rehash(ht);
+	}
+
+	return 0;
+}
+
+
 int  ht_search(hashtab_ptr ht, void *key, void **value)
 {
 	htentry_ptr p;

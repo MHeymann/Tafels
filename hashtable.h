@@ -10,6 +10,7 @@ typedef struct hashtab *hashtab_ptr;
 hashtab_ptr ht_init(float loadfactor, unsigned int (*hash)(void *key, unsigned int size), 
 		int (*cmp)(void *a, void *b));
 int  ht_insert(hashtab_ptr ht, void *key, void *value);
+int  ht_insert_update(hashtab_ptr ht, void *key, void *value, void (*freeval)(void *));
 int  ht_search(hashtab_ptr ht, void *key, void **value);
 int ht_free(hashtab_ptr ht, void (*freekey)(void *k), void (*freeval)(void *v));
 void ht_print(hashtab_ptr ht, void (*val2str)(void *k, void *v, char *b));

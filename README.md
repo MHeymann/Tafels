@@ -35,3 +35,11 @@ Once again, a very generic implementation, therefore not stolen.
 Also, this is a personal project, not meant for commercial use.  Not
 Supposed to be used to show my own work per se, but an attempt to create
 something I enjoy.  
+
+The text of "A Tale of Two Cities" was downloaded from 
+
+	http://algs4.cs.princeton.edu/code/
+
+and all mentions of the word "search" removed, save at the end, 
+where the words "search" and "quit" was added, to stop the 
+program testhashtable from getting stuck in a never ending loop.
