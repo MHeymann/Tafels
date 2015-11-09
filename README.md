@@ -17,9 +17,9 @@ to do just that.
 It copies the program to ~/home/bin
 Make sure the file ~/.profile has the following near the end somewhere
 
-if [ -d "$HOME/bin" ] ; then
-  Path="$HOME/bin:$PATH"
-fi
+	if [ -d "$HOME/bin" ] ; then
+		Path="$HOME/bin:$PATH"
+	fi
 
 # Copyright
 See Makefile for further discription
