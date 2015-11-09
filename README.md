@@ -21,8 +21,9 @@ Make sure the file ~/.profile has the following near the end somewhere
 		Path="$HOME/bin:$PATH"
 	fi
 
+See Makefile for further discription.
+
 # Copyright
-See Makefile for further discription
 Note, the Makefile was shamelessly copied and adapted from a lecturer, but
 I believe it is generic enough that no copyright was enfringed.  If 
 this is not the case, feel free to contact me to educate
