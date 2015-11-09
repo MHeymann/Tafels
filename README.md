@@ -4,8 +4,8 @@ small program for testing knowledge of time tables
 # Installation
 When finished, simply run
 
-$ make
-$ sudo make install
+	$ make
+	$ sudo make install
 
 to install and
 
