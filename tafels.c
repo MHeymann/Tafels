@@ -81,10 +81,11 @@ get_ops:
 			if ((float)*val > (av_repeats * 3)) {
 				goto get_ops;
 			}
+			printf("%d\n", *val);
 		}
-		ht_insert_update(ht, (void *)key, (void *)val, freeval);
+ht_insert_update(ht, (void *)key, (void *)val, freeval);
 		if (found) {
-			free(key);
+			free(val);
 		}
 		printf("%d * %d = ", op1, op2);
 		attempts = 0;
@@ -102,7 +103,6 @@ scanner:
 	}
 
 	ht_free(ht, freekey, freeval);
-	free(val);
 
 	return 0;
 }
@@ -140,7 +140,7 @@ static int combs_avail()
 
 static float expect_repeats()
 {
-	return (0.0f + combs_avail()) / num_qs;
+	return (0.0f + num_qs) / combs_avail();
 }
 
 unsigned int hash(void *key, unsigned int size)

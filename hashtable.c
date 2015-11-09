@@ -156,7 +156,7 @@ int  ht_search(hashtab_ptr ht, void *key, void **value)
 	int hash = ht->hash(key, ht->size);
 
 	for (p = ht->table[hash]; p; p = p->next_ptr) {
-		if (ht->cmp(key, p->key) == 0) {
+		if (ht->cmp(p->key, key) == 0) {
 			*value = p->val;
 			break;
 		}
