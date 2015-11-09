@@ -9,7 +9,7 @@ When finished, simply run
 
 to install and
 
-$ sudo make uninstall
+	$ sudo make uninstall
 
 to do just that.
 
